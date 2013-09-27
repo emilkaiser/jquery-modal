@@ -11,29 +11,25 @@
 
   'use strict';
 
-  var template = '<section class="modal" tabindex="-1"><div class="inner"><div class="content"></div></div><a href="#" class="close" data-close="">×</a></section>',
+  var template = '<section class="jqm" tabindex="-1"><div class="jqm-inner"><div class="jqm-content"></div></div><a href="#" class="jqm-close" data-close="">×</a></section>',
   defaults = {
-      html: {},
+      html: '',
       show: true,
-      closeText: 'Stäng'
+      closeText: 'Stäng',
+      className: 'modal'
     };
 
   function Modal (options) {
     this.options = $.extend({}, defaults, options);
     if (this.options.show) {
-      this.init();
       this.show();
     }
   }
 
   Modal.prototype = {
       init: function () {
-        if (this.$modal) {
-          return;
-        }
-        $('.modal').each(remove);
-        this.$modal = $(template);
-        this.$modal.find('.close').attr('data-close', this.options.closeText);
+        this.$modal = $(template).addClass(this.options.className);
+        this.$modal.find('.jqm-close').attr('data-close', this.options.closeText);
         this.$modal.find('a').on('click', $.proxy(function (event) {
           event.preventDefault();
           this.hide();
@@ -42,14 +38,20 @@
         this.update(this.options.html);
       },
       show: function () {
-        this.init();
+        if (!this.$modal) {
+          this.init();
+        }
+        $('.jqm').removeClass('active');
         this.$modal.addClass('active');
+        return this;
       },
       hide: function () {
         this.$modal.removeClass('active');
+        return this;
       },
       remove: function () {
-        remove(this.$modal);
+        this.$modal.children().off();
+        this.$modal.remove();
       },
       ajax: function (url, settings) {
         this.init();
@@ -58,7 +60,8 @@
         }, this));
       },
       update: function (html) {
-        this.$modal.find('.content').html(html);
+        this.$modal.find('.jqm-content').html(html);
+        return this;
       },
       $: function () {
         return this.$modal;
@@ -68,11 +71,5 @@
   $.modal = function (options) {
     return new Modal(options);
   };
-
-  function remove (i, el) {
-    var $el = $(el);
-    $el.children().off();
-    $el.remove();
-  }
 
 })(jQuery);

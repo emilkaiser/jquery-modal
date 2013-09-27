@@ -10,7 +10,7 @@ html {
   overflow-y: scroll;
 }
 
-.modal {
+.jqm {
   -webkit-transform: translate(0, 100%);
   -webkit-transform: translate3d(0, 100%, 0);
   -moz-transform: translate(0, 100%);
@@ -29,7 +29,7 @@ html {
   line-height: 1.3;
   display: none\9;
 }
-.modal.active {
+.jqm.active {
   -webkit-transform: translate(0, 0);
   -moz-transform: translate(0, 0);
   -o-transform: translate(0, 0);
@@ -37,10 +37,10 @@ html {
   transform: translate(0, 0);
   opacity: 1;
 }
-.modal.active {
+.jqm.active {
   display: block\9;
 }
-.modal .inner {
+.jqm .jqm-inner {
   position: absolute;
   top: 50px;
   left: 50%;
@@ -54,16 +54,16 @@ html {
   -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
 }
-.modal .inner > img {
+.jqm .jqm-inner > img {
   width: 100%;
   height: auto;
   min-height: 300px;
 }
-.modal .inner > img {
+.jqm .jqm-inner > img {
   width: auto;
   max-width: 100%;
 }
-.modal .content {
+.jqm .jqm-content {
   max-height: 400px;
   max-height: 70vh;
   border-bottom: 1px solid #dddddd;
@@ -71,15 +71,15 @@ html {
   overflow-x: hidden;
   overflow-y: auto;
 }
-.modal .content > * {
+.jqm .jqm-content > * {
   max-width: 100%;
 }
-.modal .close {
+.jqm .jqm-close {
   display: block;
   text-indent: -100px;
   overflow: hidden;
 }
-.modal .close:before {
+.jqm .jqm-close:before {
   content: '';
   position: absolute;
   top: 0;
@@ -90,7 +90,7 @@ html {
   background-color: #000;
   opacity: 0.5;
 }
-.modal .close:after {
+.jqm .jqm-close:after {
   content: '\00d7';
   position: absolute;
   top: 50px;
@@ -105,27 +105,27 @@ html {
   text-indent: 0;
   opacity: 0.5;
 }
-.modal .close:hover:after {
+.jqm .jqm-close:hover:after {
   opacity: 1;
 }
 @media screen and (max-width: 690px) {
-  .modal .inner {
+  .jqm .jqm-inner {
     width: auto;
     left: 20px;
     right: 20px;
     margin-left: 0;
   }
-  .modal .close {
+  .jqm .jqm-close {
     left: auto;
     right: 33px;
     margin-left: 0;
   }
-  .modal .close:after {
+  .jqm .jqm-close:after {
     margin-left: 40%;
   }
 }
 @media screen and (max-width: 30em) {
-  .modal {
+  .jqm {
     -webkit-transform: translate(0, 400px);
     -webkit-transform: translate3d(0, 100%, 0);
     -moz-transform: translate(0, 400px);
@@ -144,14 +144,14 @@ html {
     height: 100%;
     bottom: auto;
   }
-  .modal.active {
+  .jqm.active {
     -webkit-transition: -webkit-transform .25s ease-in-out;
     -moz-transition: -moz-transform .25s ease-in-out;
     -o-transition: -o-transform .25s ease-in-out;
     -ms-transition: -ms-transform .25s ease-in-out;
     transition: transform .25s ease-in-out;
   }
-  .modal:before {
+  .jqm:before {
     background-color: #27aae2;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#27aae2), to(#1c9cd3));
     background-image: -webkit-linear-gradient(top, #27aae2, #1c9cd3);
@@ -169,7 +169,7 @@ html {
     -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
   }
-  .modal .inner {
+  .jqm .jqm-inner {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -183,17 +183,17 @@ html {
     -moz-box-shadow: none;
     box-shadow: none;
   }
-  .modal .content {
+  .jqm .jqm-content {
     max-height: none;
   }
-  .modal .close {
+  .jqm .jqm-close {
     right: auto;
     text-decoration: none;
   }
-  .modal .close:before {
+  .jqm .jqm-close:before {
     display: none;
   }
-  .modal .close:after {
+  .jqm .jqm-close:after {
     content: attr(data-close);
     top: 0.4em;
     left: 1em;
@@ -205,20 +205,20 @@ html {
   }
 }
 @media screen and (max-height: 46em) and (min-width: 30em) {
-  .modal .content {
+  .jqm .jqm-content {
     max-height: 340px;
     max-height: 50vh;
   }
 }
 @media screen and (max-height: 36em) and (min-width: 30em) {
-  .modal .content {
+  .jqm .jqm-content {
     max-height: 265px;
     max-height: 40vh;
   }
 }
 
 @media screen and (min-width: 30em) {
-  .modal {
+  .jqm {
     -webkit-transition: opacity 0.4s;
     -o-transition: opacity 0.4s;
     -moz-transition: opacity 0.4s;
