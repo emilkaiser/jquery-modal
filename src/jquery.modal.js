@@ -11,7 +11,7 @@
 
   'use strict';
 
-  var template = '<section class="jqm" tabindex="-1"><div class="jqm-inner"><div class="jqm-content"></div></div><a href="#" class="jqm-close" data-close="">×</a></section>',
+  var template = '<section class="jqm" tabindex="-1"><div class="jqm-inner row"><div class="jqm-content"></div><a href="#" class="jqm-close" data-close="Stäng"></a></div><a href="#" class="jqm-overlay" data-close=""></a></section>',
   defaults = {
       html: '',
       show: true,
@@ -28,6 +28,9 @@
 
   Modal.prototype = {
       init: function () {
+        if (this.$modal) {
+          return;
+        }
         this.$modal = $(template).addClass(this.options.className);
         this.$modal.find('.jqm-close').attr('data-close', this.options.closeText);
         this.$modal.find('a').on('click', $.proxy(function (event) {
@@ -38,18 +41,18 @@
         this.update(this.options.html);
       },
       show: function () {
-        if (!this.$modal) {
-          this.init();
-        }
+        this.init();
         $('.jqm').removeClass('active');
         this.$modal.addClass('active');
         return this;
       },
       hide: function () {
+        this.init();
         this.$modal.removeClass('active');
         return this;
       },
       remove: function () {
+        this.init();
         this.$modal.children().off();
         this.$modal.remove();
       },
@@ -60,6 +63,7 @@
         }, this));
       },
       update: function (html) {
+        this.init();
         this.$modal.find('.jqm-content').html(html);
         return this;
       },

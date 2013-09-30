@@ -41,11 +41,9 @@ html {
   display: block\9;
 }
 .jqm .jqm-inner {
-  position: absolute;
+  position: relative;
   top: 50px;
-  left: 50%;
   z-index: 20;
-  margin-left: -325px;
   width: 650px;
   overflow-x: hidden;
   border-radius: 2px;
@@ -53,6 +51,8 @@ html {
   -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+  min-width: inherit;
+  padding: 0;
 }
 .jqm .jqm-inner > img {
   width: 100%;
@@ -65,7 +65,7 @@ html {
 }
 .jqm .jqm-content {
   max-height: 400px;
-  max-height: 70vh;
+  max-height: 70vh; 
   border-bottom: 1px solid #dddddd;
   padding: 15px 1.2em;
   overflow-x: hidden;
@@ -76,10 +76,14 @@ html {
 }
 .jqm .jqm-close {
   display: block;
-  text-indent: -100px;
-  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
-.jqm .jqm-close:before {
+.jqm .jqm-overlay {
+  cursor: default;
+}
+.jqm .jqm-overlay:before {
   content: '';
   position: absolute;
   top: 0;
@@ -93,10 +97,8 @@ html {
 .jqm .jqm-close:after {
   content: '\00d7';
   position: absolute;
-  top: 50px;
-  left: 50%;
+  right: 0;
   z-index: 20;
-  margin-left: 298px;
   background: #fff;
   border-radius: 2px;
   padding: 2px 8px;
@@ -218,10 +220,5 @@ html {
 }
 
 @media screen and (min-width: 30em) {
-  .jqm {
-    -webkit-transition: opacity 0.4s;
-    -o-transition: opacity 0.4s;
-    -moz-transition: opacity 0.4s;
-    transition: opacity 0.4s;
-  }
+  
 }
