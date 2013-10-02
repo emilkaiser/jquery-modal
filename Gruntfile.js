@@ -23,7 +23,8 @@ module.exports = function(grunt) {
           'known-properties': false,
           'universal-selector': false,
           'text-indent': false,
-          'box-sizing': false
+          'box-sizing': false,
+          'box-model': false
         },
         src: ['src/**/*.css']
       }

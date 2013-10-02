@@ -16,7 +16,8 @@
       html: '',
       show: true,
       closeText: 'Stäng',
-      className: 'modal'
+      className: 'modal',
+      bodyClassName: 'jqm-active'
     };
 
   function Modal (options) {
@@ -42,13 +43,19 @@
       },
       show: function () {
         this.init();
-        $('.jqm').removeClass('active');
-        this.$modal.addClass('active');
+        $('.jqm').removeClass('jqm-active');
+        if (this.options.bodyClassName) {
+          $('body').addClass(this.options.bodyClassName);
+        }
+        this.$modal.addClass('jqm-active');
         return this;
       },
       hide: function () {
         this.init();
-        this.$modal.removeClass('active');
+        if (this.options.bodyClassName) {
+          $('body').removeClass(this.options.bodyClassName);
+        }
+        this.$modal.removeClass('jqm-active');
         return this;
       },
       remove: function () {
