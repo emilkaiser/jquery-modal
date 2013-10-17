@@ -1,7 +1,3 @@
-html {
-  overflow-y: scroll;
-}
-
 .has-overlay {
   overflow: hidden;
 }
@@ -27,7 +23,9 @@ html {
   opacity: 0;
   color: #222;
   line-height: 1.3;
-  display: none\9;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .jqm.jqm-active {
   -webkit-transform: translate(0, 0);
@@ -66,7 +64,7 @@ html {
 .jqm .jqm-content {
   max-height: 400px;
   max-height: 70vh;
-  padding: .7em;
+  padding: 1.5em;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -78,6 +76,9 @@ html {
   position: absolute;
   top: 0;
   right: 0;
+}
+.jqm .jqm-close.phone {
+  display: none;
 }
 .jqm .jqm-overlay {
   cursor: default;
@@ -109,7 +110,7 @@ html {
 .jqm .jqm-close:hover:after {
   opacity: 1;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 47em) {
   .jqm {
     -webkit-transform: translate(0, 400px);
     -webkit-transform: translate3d(0, 100%, 0);
@@ -144,66 +145,57 @@ html {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 20;
+    z-index: 30;
     height: 3em;
     -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
     -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
   }
   .jqm .jqm-inner {
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     padding-top: 3em;
     height: 100%;
     overflow: scroll;
+    -webkit-overflow-scrolling: touch;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
-    z-index: 21;
     background-color: transparent;
   }
   .jqm .jqm-content {
     max-height: none;
+    padding: .5em .7em 3em;
   }
   .jqm .jqm-close {
     right: auto;
     text-decoration: none;
+    display: none;
+  }
+  .jqm .jqm-close.phone {
+    display: block;
   }
   .jqm .jqm-close:before {
     display: none;
   }
   .jqm .jqm-close:after {
     content: attr(data-close);
-    top: 0.3em;
+    top: .3em;
     left: .7em;
     z-index: 40;
-    margin-left: 0;
     font-size: 1em;
-    padding: 0.5em 1em;
+    padding: 0 .4em;
     opacity: 1;
-    width: 42px;
-    border: 1px solid #595959;
+    border: 1px solid #ccc;
     color: #595959;
-    border-radius: 2px;
+    border-radius: .2em;
+    right: inherit;
+    height: 2.3em;
+    line-height: 2.2em;
   }
   .jqm .jqm-overlay {
     display:none;
   }
-}
-@media screen and (max-height: 46em) and (min-width: 30em) {
-  .jqm .jqm-content {
-    max-height: 340px;
-    max-height: 50vh;
-  }
-}
-@media screen and (max-height: 36em) and (min-width: 30em) {
-  .jqm .jqm-content {
-    max-height: 265px;
-    max-height: 40vh;
-  }
-}
-
-@media screen and (min-width: 30em) {
-  
 }
