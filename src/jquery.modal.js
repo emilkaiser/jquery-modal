@@ -13,8 +13,7 @@
 
   var template = '<section class="jqm" tabindex="-1"><div class="jqm-inner row"><div class="jqm-content"></div><a href="#" class="jqm-close"></a></div><a href="#" class="jqm-close phone" data-close="Stäng"></a><a href="#" class="jqm-overlay"></a></section>',
   defaults = {
-      html: '',
-      show: true,
+      html: false,
       closeText: 'Stäng',
       className: 'modal',
       bodyClassName: 'jqm-active'
@@ -22,57 +21,48 @@
 
   function Modal (options) {
     this.options = $.extend({}, defaults, options);
-    if (this.options.show) {
-      this.show();
+    this.$modal = $(template).addClass(this.options.className);
+    this.$modal.find('.jqm-close').attr('data-close', this.options.closeText);
+    this.$modal.find('a').on('click', $.proxy(function (event) {
+      event.preventDefault();
+      this.hide();
+    }, this));
+    $('body').append(this.$modal);
+    if (this.options.html) {
+      this.update(this.options.html);
     }
+    this.deferred = $.Deferred();
   }
 
   Modal.prototype = {
-    init: function () {
-      if (this.$modal) {
-        return;
-      }
-      this.$modal = $(template).addClass(this.options.className);
-      this.$modal.find('.jqm-close').attr('data-close', this.options.closeText);
-      this.$modal.find('a').on('click', $.proxy(function (event) {
-        event.preventDefault();
-        this.hide();
-      }, this));
-      $('body').append(this.$modal);
-      this.update(this.options.html);
-    },
     show: function () {
-      this.init();
-      $('.jqm').removeClass('jqm-active');
-      if (this.options.bodyClassName) {
-        $('body').addClass(this.options.bodyClassName);
-      }
-      this.$modal.addClass('jqm-active');
-      return this;
+      this.deferred.done(function () {
+        $('.jqm').removeClass('jqm-active');
+        if (this.options.bodyClassName) {
+          $('body').addClass(this.options.bodyClassName);
+        }
+        this.$modal.addClass('jqm-active');
+      });
     },
     hide: function () {
-      this.init();
       if (this.options.bodyClassName) {
         $('body').removeClass(this.options.bodyClassName);
       }
       this.$modal.removeClass('jqm-active');
-      return this;
     },
     remove: function () {
-      this.init();
       this.$modal.children().off();
       this.$modal.remove();
     },
-    ajax: function (url, settings) {
-      this.init();
-      return $.ajax(url, settings).done($.proxy(function (response) {
+    promise: function (promise, show) {
+      promise.done($.proxy(function (response) {
         this.update(response);
       }, this));
+      return this.deferred.promise();
     },
     update: function (html) {
-      this.init();
       this.$modal.find('.jqm-content').html(html);
-      return this;
+      this.deferred.resolveWith(this, [this]);
     },
     $: function () {
       return this.$modal;
