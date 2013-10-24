@@ -27,11 +27,11 @@
       event.preventDefault();
       this.hide();
     }, this));
+    this.deferred = $.Deferred();
     $('body').append(this.$modal);
     if (this.options.html) {
       this.update(this.options.html);
     }
-    this.deferred = $.Deferred();
   }
 
   Modal.prototype = {
