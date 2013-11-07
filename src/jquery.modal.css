@@ -44,11 +44,9 @@
   z-index: 20;
   width: 650px;
   overflow-x: hidden;
-  border-radius: 2px;
-  background: #fff;
-  -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
-  -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  border: 1px solid #accaf5;
+  background: #f6f6f6;
   min-width: inherit;
   padding: 0;
 }
@@ -91,15 +89,18 @@
   right: 0;
   bottom: 0;
   z-index: 10;
-  background-color: #000;
+  background-color: #FFF;
   opacity: 0.5;
+}
+body.jqm-active > div {
+  -webkit-filter: blur(4px);
 }
 .jqm .jqm-close:after {
   content: '\00d7';
   position: absolute;
   right: 0;
   z-index: 20;
-  background: #fff;
+  background: transparent;
   border-radius: 2px;
   padding: 2px 8px;
   font-size: 1.2em;
@@ -139,17 +140,14 @@
     background-color: #fff;
   }
   .jqm:before {
-    background-color: #5491ca;
+    background-color: #4B88F1;
     content: '';
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 30;
-    height: 3em;
-    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
-    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+    height: 2.65em;
   }
   .jqm .jqm-inner {
     position: absolute;
@@ -181,19 +179,26 @@
     display: none;
   }
   .jqm .jqm-close:after {
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;
     content: attr(data-close);
-    top: .3em;
+    top: .25em;
     left: .7em;
     z-index: 40;
     font-size: 1em;
-    padding: 0 .4em;
+    padding: 0 .8em;
     opacity: 1;
-    border: 1px solid #ccc;
-    color: #595959;
+    border: 1px solid #fff;
+    color: #FFF;
     border-radius: .2em;
     right: inherit;
-    height: 2.3em;
-    line-height: 2.2em;
+    height: 2.1em;
+    line-height: 2.1em;
+
+  }
+  body.jqm-active > div {
+    -webkit-filter: blur(0px);
   }
   .jqm .jqm-overlay {
     display:none;
