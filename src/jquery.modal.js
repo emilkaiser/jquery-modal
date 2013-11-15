@@ -36,7 +36,7 @@
 
   Modal.prototype = {
     show: function () {
-      this.deferred.done(function () {
+      return this.deferred.done(function () {
         $('.jqm').removeClass('jqm-active');
         if (this.options.bodyClassName) {
           $('body').addClass(this.options.bodyClassName);
@@ -54,7 +54,7 @@
       this.$modal.children().off();
       this.$modal.remove();
     },
-    promise: function (promise, show) {
+    promise: function (promise) {
       promise.done($.proxy(function (response) {
         this.update(response);
       }, this));
