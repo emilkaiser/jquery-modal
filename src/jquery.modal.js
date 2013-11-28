@@ -11,7 +11,7 @@
 
   'use strict';
 
-  var template = '<section class="jqm" tabindex="-1"><div class="jqm-inner row"><div class="jqm-content"></div><a href="#" class="jqm-close"></a></div><a href="#" class="jqm-close phone" data-close="Stäng"></a><a href="#" class="jqm-overlay"></a></section>',
+  var template = '<section class="jqm" tabindex="-1"><div class="jqm-inner"><div class="jqm-content"></div><a href="#" class="jqm-close"></a></div><a href="#" class="jqm-close phone" data-close=""></a><a href="#" class="jqm-overlay"></a></section>',
   defaults = {
       html: false,
       closeText: 'Stäng',
