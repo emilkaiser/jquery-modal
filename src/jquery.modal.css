@@ -7,15 +7,8 @@
 }
 
 .jqm {
-  -webkit-transform: translate(0, 100%);
-  -webkit-transform: translate3d(0, 100%, 0);
-  -moz-transform: translate(0, 100%);
-  -o-transform: translate(0, 100%);
-  -ms-transform: translate(0, 100%);
-  transform: translate(0, 100%);
-  transform: translate3d(0, 100%, 0);
   position: fixed;
-  top: 0;
+  top: 100%;
   left: 0;
   right: 0;
   bottom: 0;
@@ -28,14 +21,13 @@
   box-sizing: border-box;
 }
 .jqm.jqm-active {
-  -webkit-transform: translate(0, 0);
-  -moz-transform: translate(0, 0);
-  -o-transform: translate(0, 0);
-  -ms-transform: translate(0, 0);
-  transform: translate(0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  top: 0;
   opacity: 1;
-}
-.jqm.jqm-active {
   display: block\9;
 }
 .jqm .jqm-inner {
@@ -114,13 +106,9 @@ body.jqm-active > div {
 }
 @media screen and (max-width: 47em) {
   .jqm {
-    -webkit-transform: translate(0, 400px);
     -webkit-transform: translate3d(0, 100%, 0);
-    -moz-transform: translate(0, 400px);
     -moz-transform: translate3d(0, 100%, 0);
-    -ms-transform: translate(0, 400px);
     -ms-transform: translate3d(0, 100%, 0);
-    -o-transform: translate(0, 400px);
     -o-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
     -webkit-transition: -webkit-transform .25s ease-in-out, opacity 1ms .25s;
@@ -131,6 +119,7 @@ body.jqm-active > div {
     display: block;
     height: 100%;
     bottom: auto;
+    top: 100%;
   }
   .jqm.jqm-active {
     -webkit-transition: -webkit-transform .25s ease-in-out;
@@ -139,6 +128,8 @@ body.jqm-active > div {
     -ms-transition: -ms-transform .25s ease-in-out;
     transition: transform .25s ease-in-out;
     background-color: #fff;
+    top: 0;
+    min-width: 100%;
   }
   .jqm:before {
     background-color: #fff;
