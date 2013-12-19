@@ -21,11 +21,6 @@
   box-sizing: border-box;
 }
 .jqm.jqm-active {
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
   top: 0;
   opacity: 1;
   display: block\9;
@@ -122,11 +117,11 @@ body.jqm-active > div {
     top: 100%;
   }
   .jqm.jqm-active {
-    -webkit-transition: -webkit-transform .25s ease-in-out;
-    -moz-transition: -moz-transform .25s ease-in-out;
-    -o-transition: -o-transform .25s ease-in-out;
-    -ms-transition: -ms-transform .25s ease-in-out;
-    transition: transform .25s ease-in-out;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
     background-color: #fff;
     top: 0;
     min-width: 100%;
@@ -178,20 +173,17 @@ body.jqm-active > div {
     box-sizing: border-box;
     content: attr(data-close);
     top: .25em;
-    left: .7em;
     z-index: 40;
     font-size: 1em;
     padding: 0 .8em;
-    border: 1px solid #317dec;
+    border: 1px solid #dfdfdf;
     color: #317dec;
-    opacity: 0.5;
+    opacity: 1;
     border-radius: .2em;
     right: inherit;
     height: 2.1em;
     line-height: 2.1em;
-  }
-  .jqm .jqm-close:hover:after {
-    opacity: 1;
+    margin-left: 12px;
   }
   body.jqm-active > div {
     -webkit-filter: blur(0px);
