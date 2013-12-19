@@ -122,6 +122,11 @@ body.jqm-active > div {
     -o-transform: translate3d(0, 0, 0);
     -ms-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
+    -webkit-transition: -webkit-transform .25s ease-in-out;
+    -moz-transition: -moz-transform .25s ease-in-out;
+    -o-transition: -o-transform .25s ease-in-out;
+    -ms-transition: -ms-transform .25s ease-in-out;
+    transition: transform .25s ease-in-out;
     background-color: #fff;
     top: 0;
     min-width: 100%;
