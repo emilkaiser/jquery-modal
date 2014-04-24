@@ -17,8 +17,10 @@ module.exports = function(grunt) {
       }
     },
     sass: {
-      files: {
-        'dist/jquery.modal.css': 'src/jquery.modal.scss'
+      prod: {
+        files: {
+          'dist/jquery.modal.css': 'src/jquery.modal.scss'
+        }
       }
     }
   });
